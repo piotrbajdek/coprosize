@@ -1,0 +1,12 @@
+[package]
+name = "coprosize"
+version = "0.0.0"
+authors = ["Piotr Bajdek <piotr.bajdek@protonmail.com>"]
+edition = "2021"
+description = "command line tools for coprolite research (paleontology and archaeology): estimate the producer's body mass based on coprolite diameter by the use of linear regression formulas"
+documentation = "https://github.com/piotrbajdek/coprosize/wiki"
+readme = "README.md"
+repository = "https://github.com/piotrbajdek/coprosize"
+license = "MIT"
+keywords = ["paleontology", "archaeology", "biology", "science", "coprolites"]
+categories = ["algorithms", "command-line-utilities", "mathematics", "science"]
