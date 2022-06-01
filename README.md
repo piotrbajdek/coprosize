@@ -32,7 +32,7 @@ _cargo install coprosize \--version 1.0.0-alpha.2_
 
 By default, the file will be downloaded to .cargo/bin/, a hidden folder in your home directory.
 
-**2a.** For convenience, you will probably want to copy lngcnv to /usr/bin/ as in Method 2 (3a, 3b).
+**2a.** For convenience, you will probably want to copy coprosize to /usr/bin/ as in Method 2 (3a, 3b).
 
 **2b.** Alternatively, add ~/.cargo/bin directory to your PATH variable (see documentation of your shell).
 
