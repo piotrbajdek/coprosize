@@ -1,4 +1,4 @@
-// COPROSIZE VERSION 1.0.0-ALPHA.1 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
+// COPROSIZE VERSION 1.0.0-ALPHA.2 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
 
 use std::env;
 
@@ -19,7 +19,7 @@ fn main() {
 
       if argument == "-a" || argument == "--about" {
       println!("Program:  coprosize");
-      println!("Version:  1.0.0-alpha.1");
+      println!("Version:  1.0.0-alpha.2");
       println!("Date:     June 01, 2022");
       println!("Author:   Piotr Bajdek");
       println!("Contact:  {}", blue_underlined.to_owned() + "piotr.bajdek@proton.me" + clear);
@@ -39,7 +39,7 @@ fn main() {
 // CITATION
 
       if argument == "-C" || argument == "--citation" {
-      println!("Bajdek, P., 2022. coprosize (version 1.0.0-alpha.1). [computer software] https://github.com/piotrbajdek/coprosize");
+      println!("Bajdek, P., 2022. coprosize (version 1.0.0-alpha.2). [computer software] https://github.com/piotrbajdek/coprosize");
       return;
       }
 
@@ -90,7 +90,7 @@ fn main() {
 // VERSION
 
       if argument == "-v" || argument == "--version" {
-      println!("Version: 1.0.0-alpha.1");
+      println!("Version: 1.0.0-alpha.2");
       println!("June 01, 2022");
       return;
       }
