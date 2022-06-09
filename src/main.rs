@@ -1,4 +1,4 @@
-// COPROSIZE VERSION 1.0.0-ALPHA.3 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
+// COPROSIZE VERSION 1.0.0-ALPHA.4 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
 
 use std::env;
 
@@ -9,7 +9,6 @@ fn main() {
    let bright_yellow = "\x1b[93m";
    let blue_underlined = "\x1b[34;4m";
    let cyan = "\x1b[36m";
-   let grey = "\x1b[38;5;240m";
 
 // ARGUMENTS ANYWHERE WITHIN THE STRING
 
@@ -19,8 +18,8 @@ fn main() {
 
       if argument == "-a" || argument == "--about" {
       println!("Program:  coprosize");
-      println!("Version:  1.0.0-alpha.3");
-      println!("Date:     June 06, 2022");
+      println!("Version:  1.0.0-alpha.4");
+      println!("Date:     June 09, 2022");
       println!("Author:   Piotr Bajdek");
       println!("Contact:  {}", blue_underlined.to_owned() + "piotr.bajdek@proton.me" + clear);
       println!("ORCID:    {}", blue_underlined.to_owned() + "https://orcid.org/0000-0003-2678-3122" + clear);
@@ -32,14 +31,14 @@ fn main() {
 // CHANGES
 
       if argument == "-c" || argument == "--changes" {
-      println!("--.--.---- v1.0.0 – Implemented --carnivorous --amphibia, --carnivorous --archosauria, --carnivorous --mammalia, --carnivorous --squamata, --herbivorous --archosauria, --herbivorous --mammalia, --herbivorous --reptilia, --omnivorous --archosauria, --omnivorous --mammalia, --unspecified --testudines");
+      println!("--.--.---- v1.0.0 – Implemented --carnivorous --amphibia, --carnivorous --archosauria, --carnivorous --squamata, --herbivorous --archosauria, --herbivorous --marsupialia, --herbivorous --reptilia, --omnivorous --archosauria, --unspecified --testudines");
       return;
       }
 
 // CITATION
 
       if argument == "-C" || argument == "--citation" {
-      println!("Bajdek, P., 2022. coprosize (version 1.0.0-alpha.3). [computer software] https://github.com/piotrbajdek/coprosize");
+      println!("Bajdek, P., 2022. coprosize (version 1.0.0-alpha.4). [computer software] https://github.com/piotrbajdek/coprosize");
       return;
       }
 
@@ -48,19 +47,17 @@ fn main() {
       if argument == "-h" || argument == "--help" {
       println!("Usage:{}", bright_yellow.to_owned() + "    coprosize [DIET / TAXON] [TAXON / DIET] [COPROLITE DIAMETER IN MM]");
       println!("{}", clear);
-      println!("          {}", cyan.to_owned() + "--carnivorous --amphibia" + clear + "          Model for carnivorous amphibians");
-      println!("          {}", cyan.to_owned() + "--carnivorous --archosauria" + clear + "       Model for carnivorous archosaurs");
-      println!("          {}", grey.to_owned() + "--carnivorous --mammalia" + clear + "          Model for carnivorous mammalians");
-      println!("          {}", cyan.to_owned() + "--carnivorous --squamata" + clear + "          Model for carnivorous squamates");
-      println!("          {}", cyan.to_owned() + "--herbivorous --archosauria" + clear + "       Model for herbivorous archosaurs");
-      println!("          {}", grey.to_owned() + "--herbivorous --mammalia" + clear + "          Model for herbivorous mammalians");
-      println!("          {}", cyan.to_owned() + "--herbivorous --reptilia" + clear + "          Model for herbivorous reptiles");
-      println!("          {}", cyan.to_owned() + "--omnivorous --archosauria" + clear + "        Model for omnivorous archosaurs");
-      println!("          {}", grey.to_owned() + "--omnivorous --mammalia" + clear + "           Model for omnivorous mammalians");
-      println!("          {}", cyan.to_owned() + "--unspecified --testudines" + clear + "        Model for turtles of all diets");
-      println!("{}", grey);
-      println!("            Features in grey are not yet implemented during the alpha phase!");
-      println!("{}", clear);
+      println!("          {}", cyan.to_owned() + "--carnivorous --amphibia      " + red + "[h]" + clear + " Model for carnivorous amphibians");
+      println!("          {}", cyan.to_owned() + "--carnivorous --archosauria " + red + "[l/m]" + clear + " Model for carnivorous archosaurs");
+      println!("          {}", cyan.to_owned() + "--carnivorous --squamata      " + red + "[m]" + clear + " Model for carnivorous squamates");
+      println!("          {}", cyan.to_owned() + "--herbivorous --archosauria   " + red + "[h]" + clear + " Model for herbivorous archosaurs");
+      println!("          {}", cyan.to_owned() + "--herbivorous --marsupialia " + red + "[m/h]" + clear + " Model for herbivorous marsupials");
+      println!("          {}", cyan.to_owned() + "--herbivorous --reptilia      " + red + "[h]" + clear + " Model for herbivorous reptiles");
+      println!("          {}", cyan.to_owned() + "--omnivorous --archosauria  " + red + "[l/m]" + clear + " Model for omnivorous archosaurs");
+      println!("          {}", cyan.to_owned() + "--unspecified --testudines    " + red + "[l]" + clear + " Model for turtles of all diets");
+      println!("");
+      println!("          Model reliability: {}", red.to_owned() + "[l]" + clear + " - low, " + red + "[m]" + clear + " - moderate, " + red + "[h]" + clear + " - seemingly high");
+      println!("");
       println!("Examples:{}", bright_yellow.to_owned() + " coprosize --carnivorous --archosauria 27.75" + clear + " [diameter given in mm]");
       println!("{}", bright_yellow.to_owned() + "          coprosize --archosauria --carnivorous 27.75" + clear + " [diameter given in mm]");
       println!("");
@@ -91,8 +88,8 @@ fn main() {
 // VERSION
 
       if argument == "-v" || argument == "--version" {
-      println!("Version: 1.0.0-alpha.3");
-      println!("June 06, 2022");
+      println!("Version: 1.0.0-alpha.4");
+      println!("June 09, 2022");
       return;
       }
    }
@@ -141,12 +138,6 @@ fn main() {
    return;
    }
 
-// CARNIVOROUS MAMMALIA
-
-   if input1 == "--carnivorous" && input2 == "--mammalia" || input1 == "--mammalia" && input2 == "--carnivorous" {
-   todo!();
-   }
-
 // CARNIVOROUS SQUAMATA
 
    if input1 == "--carnivorous" && input2 == "--squamata" || input1 == "--squamata" && input2 == "--carnivorous" {
@@ -183,10 +174,22 @@ fn main() {
    return;
    }
 
-// HERBIVOROUS MAMMALIA
+// HERBIVOROUS MARSUPIALIA
 
-   if input1 == "--herbivorous" && input2 == "--mammalia" || input1 == "--mammalia" && input2 == "--herbivorous" {
-   todo!();
+   if input1 == "--herbivorous" && input2 == "--marsupialia" || input1 == "--marsupialia" && input2 == "--herbivorous" {
+   let diameter = args.get(3).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
+   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
+
+   let power = f32::powf(dcal as f32, 2.2193247015);
+   let mass = 0.0224440978 * power;
+
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("Producer's body mass: {}", bright_yellow.to_owned());
+   print!("{:.3}", mass);
+   print!(" kg{}", clear.to_owned());
+   println!(" = 0.0224440978 * {}", diameter.to_owned() + "²·²¹⁹³²⁴⁷⁰¹⁵");
+   println!("Regression model based on:{}", bright_yellow.to_owned() + " extant herbivorous marsupials");
+   return;
    }
 
 // HERBIVOROUS REPTILIA
@@ -213,22 +216,16 @@ fn main() {
    let diameter = args.get(3).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
    let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
 
-   let power = f32::powf(dcal as f32, 2.5971355359);
-   let mass = 0.0027905631 * power;
+   let power = f32::powf(dcal as f32, 3.0157553176);
+   let mass = 0.0014342026 * power;
 
    println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0027905631 * {}", diameter.to_owned() + "²·⁵⁹⁷¹³⁵⁵³⁵⁹");
+   println!(" = 0.0014342026 * {}", diameter.to_owned() + "³·⁰¹⁵⁷⁵⁵³¹⁷⁶");
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant omnivorous birds");
    return;
-   }
-
-// OMNIVOROUS MAMMALIA
-
-   if input1 == "--omnivorous" && input2 == "--mammalia" || input1 == "--mammalia" && input2 == "--omnivorous" {
-   todo!();
    }
 
 // UNSPECIFIED TESTUDINES

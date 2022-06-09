@@ -2,9 +2,9 @@
 
 [coprosize](https://github.com/piotrbajdek/coprosize) employs power and cubic regression models allowing to estimate the producer's body mass based on coprolite diameter. Models can be chosen accordingly to the supposed producer's taxon (at this stage of program development, only tetrapod models are implemented) and its diet type (carnivorous, herbivorous, omnivorous, unspecified). Implemented regression formulae are provided in [Supplement 1. Regression models](https://github.com/piotrbajdek/coprosize/blob/main/docs/supplement-1.ods) and constructed based on the data given in [Supplement 2. Scat diameters and body masses](https://github.com/piotrbajdek/coprosize/blob/main/docs/supplement-2.ods).
 
-As it is aimed for science, [coprosize](https://github.com/piotrbajdek/coprosize) is written in Rust. The reasons for this choice are (1) the high code correctness guaranteed by Rust, (2) to ensure that each program version will be hosted 'for perpetuity' in the [registry](https://docs.rs/crate/coprosize/latest) and (3) that each program version will remain easily installable and cross-platform 'for perpetuity', thanks to the Rust's strict policy of backwards compatibility.
+As it is aimed for science, [coprosize](https://github.com/piotrbajdek/coprosize) is written in Rust. The reasons for this choice are (1) the high code correctness guaranteed by Rust, (2) to ensure that each program version will be hosted 'for perpetuity' in the [registry](https://docs.rs/crate/coprosize/latest) and (3) that each program version will remain easily installed and cross-platform 'for perpetuity', thanks to the Rust's strict policy of backwards compatibility.
 
-**As of v1.0.0-alpha.3, coprosize remains in an unstable fast-development phase. This program version is not intended for scientific research but for presentation of the technology and testing!**
+**As of v1.0.0-alpha.4, coprosize remains in an unstable fast-development phase. This program version is not intended for scientific research but for presentation of the technology and testing!**
 
 # SCREENSHOTS
 
@@ -14,11 +14,13 @@ As it is aimed for science, [coprosize](https://github.com/piotrbajdek/coprosize
 
 ![example-image-1](https://github.com/piotrbajdek/coprosize/blob/main/docs/images/example-image-1.png?raw=true)
 
+![example-image-2](https://github.com/piotrbajdek/coprosize/blob/main/docs/images/example-image-2.png?raw=true)
+
 # CITATION AND REUSE
 
 Please, always refer to a specific program version--implemented formulae are subject to change if new data are available (or simply studied by the author) or bugs of any kind are detected. Although coprosize is designed with the needs of a user in mind, you are perfectly OK to use my models in your study without really installing it as long as you cite this computer program as the original source. You are also OK to modify and fork coprosize under terms of the [MIT license](https://github.com/piotrbajdek/coprosize/blob/main/LICENSE).
 
-Bajdek, P., 2022. coprosize (version 1.0.0-alpha.3). [computer software] https://github.com/piotrbajdek/coprosize
+Bajdek, P., 2022. coprosize (version 1.0.0-alpha.4). [computer software] https://github.com/piotrbajdek/coprosize
 
 # INSTALLATION ON LINUX
 
@@ -28,7 +30,7 @@ Bajdek, P., 2022. coprosize (version 1.0.0-alpha.3). [computer software] https:/
 
 **1.** Install from crates.io by the use of cargo:
 
-_cargo install coprosize \--version 1.0.0-alpha.3_
+_cargo install coprosize \--version 1.0.0-alpha.4_
 
 By default, the file will be downloaded to .cargo/bin/, a hidden folder in your home directory.
 
@@ -40,7 +42,7 @@ By default, the file will be downloaded to .cargo/bin/, a hidden folder in your 
 
 **1.** Download the binary 'coprosize' for Linux x86_64 from GitHub:
 
-https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-alpha.3
+https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-alpha.4
 
 **2.** Make the file executable:
 
@@ -58,7 +60,7 @@ _sudo cp coprosize /var/usrlocal/bin/_
 
 Download the coprosize source from GitHub. Then, build and install the program:
 
-https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-alpha.3
+https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-alpha.4
 
 _cargo build \--release && sudo cp target/release/coprosize /usr/bin/_
 
