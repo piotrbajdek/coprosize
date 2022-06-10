@@ -1,4 +1,4 @@
-// COPROSIZE VERSION 1.0.0-ALPHA.4 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
+// COPROSIZE VERSION 1.0.0-ALPHA.5 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
 
 use std::env;
 
@@ -18,8 +18,8 @@ fn main() {
 
       if argument == "-a" || argument == "--about" {
       println!("Program:  coprosize");
-      println!("Version:  1.0.0-alpha.4");
-      println!("Date:     June 09, 2022");
+      println!("Version:  1.0.0-alpha.5");
+      println!("Date:     June 10, 2022");
       println!("Author:   Piotr Bajdek");
       println!("Contact:  {}", blue_underlined.to_owned() + "piotr.bajdek@proton.me" + clear);
       println!("ORCID:    {}", blue_underlined.to_owned() + "https://orcid.org/0000-0003-2678-3122" + clear);
@@ -31,14 +31,14 @@ fn main() {
 // CHANGES
 
       if argument == "-c" || argument == "--changes" {
-      println!("--.--.---- v1.0.0 – Implemented --carnivorous --amphibia, --carnivorous --archosauria, --carnivorous --squamata, --herbivorous --archosauria, --herbivorous --marsupialia, --herbivorous --reptilia, --omnivorous --archosauria, --unspecified --testudines");
+      println!("--.--.---- v1.0.0 – Implemented {}", cyan.to_owned() + "--carnivorous --amphibia" + clear + ", " + cyan + "--carnivorous --archosauria" + clear + ", " + cyan + "--carnivorous --squamata" + clear + ", " + cyan + "--herbivorous --archosauria" + clear + ", " + cyan + "--herbivorous --marsupialia" + clear + ", " + cyan + "--herbivorous --reptilia" + clear + ", " + cyan + "--omnivorous --archosauria" + clear + ", " + cyan + "--unspecified --testudines");
       return;
       }
 
 // CITATION
 
       if argument == "-C" || argument == "--citation" {
-      println!("Bajdek, P., 2022. coprosize (version 1.0.0-alpha.4). [computer software] https://github.com/piotrbajdek/coprosize");
+      println!("Bajdek, P., 2022. coprosize (version 1.0.0-alpha.5). [computer software] https://github.com/piotrbajdek/coprosize");
       return;
       }
 
@@ -47,14 +47,14 @@ fn main() {
       if argument == "-h" || argument == "--help" {
       println!("Usage:{}", bright_yellow.to_owned() + "    coprosize [DIET / TAXON] [TAXON / DIET] [COPROLITE DIAMETER IN MM]");
       println!("{}", clear);
-      println!("          {}", cyan.to_owned() + "--carnivorous --amphibia      " + red + "[h]" + clear + " Model for carnivorous amphibians");
-      println!("          {}", cyan.to_owned() + "--carnivorous --archosauria " + red + "[l/m]" + clear + " Model for carnivorous archosaurs");
+      println!("   Rept.: {}", cyan.to_owned() + "--carnivorous --archosauria " + red + "[l/m]" + clear + " Model for carnivorous archosaurs");
       println!("          {}", cyan.to_owned() + "--carnivorous --squamata      " + red + "[m]" + clear + " Model for carnivorous squamates");
       println!("          {}", cyan.to_owned() + "--herbivorous --archosauria   " + red + "[h]" + clear + " Model for herbivorous archosaurs");
-      println!("          {}", cyan.to_owned() + "--herbivorous --marsupialia " + red + "[m/h]" + clear + " Model for herbivorous marsupials");
       println!("          {}", cyan.to_owned() + "--herbivorous --reptilia      " + red + "[h]" + clear + " Model for herbivorous reptiles");
       println!("          {}", cyan.to_owned() + "--omnivorous --archosauria  " + red + "[l/m]" + clear + " Model for omnivorous archosaurs");
       println!("          {}", cyan.to_owned() + "--unspecified --testudines    " + red + "[l]" + clear + " Model for turtles of all diets");
+      println!("   Mamm.: {}", cyan.to_owned() + "--herbivorous --marsupialia " + red + "[m/h]" + clear + " Model for herbivorous marsupials");
+      println!("   Other: {}", cyan.to_owned() + "--carnivorous --amphibia      " + red + "[h]" + clear + " Model for carnivorous amphibians");
       println!("");
       println!("          Model reliability: {}", red.to_owned() + "[l]" + clear + " - low, " + red + "[m]" + clear + " - moderate, " + red + "[h]" + clear + " - seemingly high");
       println!("");
@@ -88,8 +88,8 @@ fn main() {
 // VERSION
 
       if argument == "-v" || argument == "--version" {
-      println!("Version: 1.0.0-alpha.4");
-      println!("June 09, 2022");
+      println!("Version: 1.0.0-alpha.5");
+      println!("June 10, 2022");
       return;
       }
    }
@@ -111,11 +111,12 @@ fn main() {
    let power2 = f32::powi(dcal as f32, 2);
    let mass = (0.0004064349 * power1) - (0.0041616775 * power2) + (0.0147514015 * dcal) - 0.0122201640;
 
-   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("{}", cyan);
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + cyan);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0004064349 * {}", diameter.to_owned() + "³ - 0.0041616775 * " + diameter + "² + 0.0147514015 * " + diameter + " - 0.0122201640");
+   println!(" = 0.0004064349 * {}", diameter.to_owned() + "³ - 0.0041616775 * " + diameter + "² + 0.0147514015 * " + diameter + " - 0.0122201640" + cyan);
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant carnivorous batrachians");
    return;
    }
@@ -129,11 +130,12 @@ fn main() {
    let power = f32::powf(dcal as f32, 2.3933363596);
    let mass = 0.0056582325 * power;
 
-   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("{}", cyan);
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + cyan);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0056582325 * {}", diameter.to_owned() + "²·³⁹³³³⁶³⁵⁹⁶");
+   println!(" = 0.0056582325 * {}", diameter.to_owned() + "²·³⁹³³³⁶³⁵⁹⁶" + cyan);
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant carnivorous birds and crocodilians");
    return;
    }
@@ -147,11 +149,12 @@ fn main() {
    let power = f32::powf(dcal as f32, 2.3414629141);
    let mass = 0.0004822862 * power;
 
-   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("{}", cyan);
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + cyan);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0004822862 * {}", diameter.to_owned() + "²·³⁴¹⁴⁶²⁹¹⁴¹");
+   println!(" = 0.0004822862 * {}", diameter.to_owned() + "²·³⁴¹⁴⁶²⁹¹⁴¹" + cyan);
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant carnivorous squamates");
    return;
    }
@@ -165,11 +168,12 @@ fn main() {
    let power = f32::powf(dcal as f32, 2.8100206869);
    let mass = 0.0078389131 * power;
 
-   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("{}", cyan);
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + cyan);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0078389131 * {}", diameter.to_owned() + "²·⁸¹⁰⁰²⁰⁶⁸⁶⁹");
+   println!(" = 0.0078389131 * {}", diameter.to_owned() + "²·⁸¹⁰⁰²⁰⁶⁸⁶⁹" + cyan);
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant herbivorous birds");
    return;
    }
@@ -183,11 +187,12 @@ fn main() {
    let power = f32::powf(dcal as f32, 2.2193247015);
    let mass = 0.0224440978 * power;
 
-   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("{}", cyan);
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + cyan);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0224440978 * {}", diameter.to_owned() + "²·²¹⁹³²⁴⁷⁰¹⁵");
+   println!(" = 0.0224440978 * {}", diameter.to_owned() + "²·²¹⁹³²⁴⁷⁰¹⁵" + cyan);
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant herbivorous marsupials");
    return;
    }
@@ -201,11 +206,12 @@ fn main() {
    let power = f32::powf(dcal as f32, 2.8272692414);
    let mass = 0.0076217107 * power;
 
-   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("{}", cyan);
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + cyan);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0076217107 * {}", diameter.to_owned() + "²·⁸²⁷²⁶⁹²⁴¹⁴");
+   println!(" = 0.0076217107 * {}", diameter.to_owned() + "²·⁸²⁷²⁶⁹²⁴¹⁴" + cyan);
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant herbivorous birds and turtles");
    return;
    }
@@ -219,11 +225,12 @@ fn main() {
    let power = f32::powf(dcal as f32, 3.0157553176);
    let mass = 0.0014342026 * power;
 
-   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("{}", cyan);
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + cyan);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0014342026 * {}", diameter.to_owned() + "³·⁰¹⁵⁷⁵⁵³¹⁷⁶");
+   println!(" = 0.0014342026 * {}", diameter.to_owned() + "³·⁰¹⁵⁷⁵⁵³¹⁷⁶" + cyan);
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant omnivorous birds");
    return;
    }
@@ -237,11 +244,12 @@ fn main() {
    let power = f32::powf(dcal as f32, 2.1345692041);
    let mass = 0.0251303814 * power;
 
-   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + clear);
+   print!("{}", cyan);
+   println!("Coprolite diameter: {}", bright_yellow.to_owned() + diameter + " mm" + cyan);
    print!("Producer's body mass: {}", bright_yellow.to_owned());
    print!("{:.3}", mass);
    print!(" kg{}", clear.to_owned());
-   println!(" = 0.0251303814 * {}", diameter.to_owned() + "²·¹³⁴⁵⁶⁹²⁰⁴¹");
+   println!(" = 0.0251303814 * {}", diameter.to_owned() + "²·¹³⁴⁵⁶⁹²⁰⁴¹" + cyan);
    println!("Regression model based on:{}", bright_yellow.to_owned() + " extant carnivorous, omnivorous and herbivorous turtles");
    return;
    }
