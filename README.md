@@ -4,7 +4,7 @@
 
 As it is aimed for science, [coprosize](https://github.com/piotrbajdek/coprosize) is written in Rust. The reasons for this choice are (1) the high code correctness guaranteed by Rust, (2) to ensure that each program version will be accessible in the [registry](https://docs.rs/crate/coprosize/latest) 'in perpetuity' and (3) that each program version will remain easily installed and cross-platform 'in perpetuity', thanks to the Rust's strict policy of backwards compatibility.
 
-**As of v1.0.0-alpha.8, coprosize remains in an unstable fast-development phase. This program version is not intended for scientific research but for presentation of the technology and testing!**
+**As of v1.0.0-alpha.9, coprosize remains in an unstable fast-development phase. This program version is not intended for scientific research but for presentation of the technology and testing!**
 
 # USAGE
 
@@ -22,9 +22,36 @@ As it is aimed for science, [coprosize](https://github.com/piotrbajdek/coprosize
 
 # CITATION AND REUSE
 
-Please, always refer to a specific program version--implemented formulae are subject to change if new data are available (or simply studied by the author) or bugs of any kind are detected. Although coprosize is designed with the needs of a user in mind, you are perfectly OK to use my models in your study without really installing it as long as you cite this computer program as the original source. You are also OK to modify and fork coprosize under terms of the [MIT license](https://github.com/piotrbajdek/coprosize/blob/main/LICENSE).
+Please, always refer to a specific program version--implemented formulae are subject to change if new data are available (or simply studied by the author) or bugs of any kind are detected. Although coprosize is designed with the needs of a user in mind, you are perfectly OK to use my models in your study without really installing it as long as you cite this computer program as the original source:
 
-Bajdek, P., 2022. coprosize (version 1.0.0-alpha.8). [computer software] https://github.com/piotrbajdek/coprosize
+Bajdek, P., 2022. coprosize (version 1.0.0-alpha.9). [computer software] https://github.com/piotrbajdek/coprosize
+
+You are OK to modify and fork coprosize under terms of the [MIT license](https://github.com/piotrbajdek/coprosize/blob/main/LICENSE). It is also possible to link against coprosize using its library as a dependency for other bioinformatics projects (see [public functions](https://docs.rs/coprosize/1.0.0-alpha.9/coprosize/#functions)). The usage is best explained by example:
+
+Add to your `Cargo.toml` file:
+
+```
+[dependencies]
+coprosize = "1.0.0-alpha.9"
+```
+
+Put in your `src/main.rs` file:
+
+```
+extern crate coprosize;
+
+fn main() {
+let diameter = "9";  // diameter as &str
+coprosize::herbivorous_rodentia(diameter);
+println!("");
+coprosize::omnivorous_rodentia(diameter);
+println!("");
+println!("Source of the above models:");
+println!("");
+coprosize::citation();
+}
+```
+The above program will reuse the internal library of coprosize. Note that 'diameter' must be given as a _string_ (of numbers and optionally including a dot)--the library won't work receiving neither an _integer_ nor a _float_.
 
 # INSTALLATION ON LINUX
 
@@ -34,25 +61,25 @@ Bajdek, P., 2022. coprosize (version 1.0.0-alpha.8). [computer software] https:/
 
 **1.** Install from crates.io by the use of cargo:
 
-_cargo install coprosize \--version 1.0.0-alpha.8_
+_cargo install coprosize \--version 1.0.0-alpha.9_
 
-By default, the file will be downloaded to .cargo/bin/, a hidden folder in your home directory.
+By default, the file will be downloaded to `.cargo/bin/`, a hidden folder in your home directory.
 
-**2a.** For convenience, you will probably want to copy coprosize to /usr/bin/ as in Method 2 (3a, 3b).
+**2a.** For convenience, you will probably want to copy coprosize to `/usr/bin/` as in Method 2 (3a, 3b).
 
-**2b.** Alternatively, add ~/.cargo/bin directory to your PATH variable (see documentation of your shell).
+**2b.** Alternatively, add `~/.cargo/bin` directory to your PATH variable (see documentation of your shell).
 
 ## METHOD 2
 
 **1.** Download the binary 'coprosize' for Linux x86_64 from GitHub:
 
-https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-alpha.8
+https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-alpha.9
 
 **2.** Make the file executable:
 
 _sudo chmod +x ./coprosize_
 
-**3a.** Install coprosize via copying the binary to /usr/bin/
+**3a.** Install coprosize via copying the binary to `/usr/bin/`
 
 _sudo cp coprosize /usr/bin/_
 
@@ -64,7 +91,7 @@ _sudo cp coprosize /var/usrlocal/bin/_
 
 Download the coprosize source from GitHub. Then, build and install the program:
 
-https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-alpha.8
+https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-alpha.9
 
 _cargo build \--release && sudo cp target/release/coprosize /usr/bin/_
 

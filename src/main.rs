@@ -1,4 +1,4 @@
-// COPROSIZE VERSION 1.0.0-ALPHA.8 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
+// COPROSIZE VERSION 1.0.0-ALPHA.9 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
 
 // MAIN FILE
 
@@ -8,20 +8,40 @@ fn main() {
 
    let clear = "\x1b[0m"; // reset the font color
    let red = "\x1b[31m";
-   let bright_yellow = "\x1b[93m";
-   let blue_underlined = "\x1b[34;4m";
-   let cyan = "\x1b[36m";
 
 // ARGUMENTS ANYWHERE WITHIN THE STRING
 
    for argument in env::args() {
 
-      if argument == "-a" || argument == "--about" { coprosize::about(clear, blue_underlined) }
-      if argument == "-c" || argument == "--changes" { coprosize::changes(clear, cyan) }
-      if argument == "-C" || argument == "--citation" { coprosize::citation() }
-      if argument == "-h" || argument == "--help" { coprosize::help(clear, red, bright_yellow, cyan) }
-      if argument == "-l" || argument == "--license" { coprosize::license(clear, bright_yellow) }
-      if argument == "-v" || argument == "--version" { coprosize::version() }
+      if argument == "-a" || argument == "--about" {
+      coprosize::about();
+      return;
+      }
+
+      if argument == "-c" || argument == "--changes" {
+      coprosize::changes();
+      return;
+      }
+
+      if argument == "-C" || argument == "--citation" {
+      coprosize::citation();
+      return;
+      }
+
+      if argument == "-h" || argument == "--help" {
+      coprosize::help();
+      return;
+      }
+
+      if argument == "-l" || argument == "--license" {
+      coprosize::license();
+      return;
+      }
+
+      if argument == "-v" || argument == "--version" {
+      coprosize::version();
+      return;
+      }
    }
 
 // COLLECT ARGUMENTS FOR CALCULATIONS
@@ -40,14 +60,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::carnivorous_amphibia(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::carnivorous_amphibia(diameter);
          return;
       }
    
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::carnivorous_amphibia(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::carnivorous_amphibia(diameter);
    return;
    }
 
@@ -60,14 +77,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::carnivorous_archosauria(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::carnivorous_archosauria(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::carnivorous_archosauria(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::carnivorous_archosauria(diameter);
    return;
    }
 
@@ -80,14 +94,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::carnivorous_felidae(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::carnivorous_felidae(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::carnivorous_felidae(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::carnivorous_felidae(diameter);
    return;
    }
 
@@ -99,16 +110,13 @@ fn main() {
 
       if diameter == "-s" || diameter == "--subgroups" {
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::carnivorous_mammalia(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::carnivorous_mammalia(diameter);
          println!("");
-         coprosize::carnivorous_felidae(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::carnivorous_felidae(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::carnivorous_mammalia(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::carnivorous_mammalia(diameter);
    return;
    }
 
@@ -121,14 +129,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::carnivorous_squamata(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::carnivorous_squamata(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::carnivorous_squamata(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::carnivorous_squamata(diameter);
    return;
    }
 
@@ -141,14 +146,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::herbivorous_afrotheria(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::herbivorous_afrotheria(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::herbivorous_afrotheria(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::herbivorous_afrotheria(diameter);
    return;
    }
 
@@ -161,14 +163,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::herbivorous_aves(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::herbivorous_aves(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::herbivorous_aves(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::herbivorous_aves(diameter);
    return;
    }
 
@@ -181,14 +180,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::herbivorous_lagomorpha(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::herbivorous_lagomorpha(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::herbivorous_lagomorpha(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::herbivorous_lagomorpha(diameter);
    return;
    }
 
@@ -201,14 +197,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::herbivorous_marsupialia(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::herbivorous_marsupialia(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::herbivorous_marsupialia(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::herbivorous_marsupialia(diameter);
    return;
    }
 
@@ -220,16 +213,13 @@ fn main() {
 
       if diameter == "-s" || diameter == "--subgroups" {
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::herbivorous_reptilia(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::herbivorous_reptilia(diameter);
          println!("");
-         coprosize::herbivorous_aves(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::herbivorous_aves(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::herbivorous_reptilia(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::herbivorous_reptilia(diameter);
    return;
    }
 
@@ -242,14 +232,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::herbivorous_rodentia(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::herbivorous_rodentia(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::herbivorous_rodentia(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::herbivorous_rodentia(diameter);
    return;
    }
 
@@ -262,14 +249,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::omnivorous_aves(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::omnivorous_aves(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::omnivorous_aves(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::omnivorous_aves(diameter);
    return;
    }
 
@@ -282,14 +266,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::omnivorous_rodentia(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::omnivorous_rodentia(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::omnivorous_rodentia(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::omnivorous_rodentia(diameter);
    return;
    }
 
@@ -302,14 +283,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::unspecified_canidae(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::unspecified_canidae(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::unspecified_canidae(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::unspecified_canidae(diameter);
    return;
    }
 
@@ -321,20 +299,17 @@ fn main() {
 
       if diameter == "-s" || diameter == "--subgroups" {
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::unspecified_carnivora(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::unspecified_carnivora(diameter);
          println!("");
-         coprosize::unspecified_canidae(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::unspecified_canidae(diameter);
          println!("");
-         coprosize::unspecified_herpestidae(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::unspecified_herpestidae(diameter);
          println!("");
-         coprosize::unspecified_mustelidae(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::unspecified_mustelidae(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::unspecified_carnivora(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::unspecified_carnivora(diameter);
    return;
    }
 
@@ -347,14 +322,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::unspecified_herpestidae(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::unspecified_herpestidae(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::unspecified_herpestidae(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::unspecified_herpestidae(diameter);
    return;
    }
 
@@ -367,14 +339,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::unspecified_mustelidae(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::unspecified_mustelidae(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::unspecified_mustelidae(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::unspecified_mustelidae(diameter);
    return;
    }
 
@@ -387,14 +356,11 @@ fn main() {
       if diameter == "-s" || diameter == "--subgroups" {
          println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
-         let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-         coprosize::unspecified_testudines(clear, bright_yellow, cyan, diameter, dcal);
+         coprosize::unspecified_testudines(diameter);
          return;
       }
 
-   let dcal: f32 = diameter.parse().expect(&(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear));
-
-   coprosize::unspecified_testudines(clear, bright_yellow, cyan, diameter, dcal);
+   coprosize::unspecified_testudines(diameter);
    return;
    }
 
