@@ -51,7 +51,7 @@ println!("");
 coprosize::citation();
 }
 ```
-The above program will reuse the internal library of coprosize. Note that 'diameter' must be given as a _string_ (of numbers and optionally including a dot)--the library won't work receiving neither an _integer_ nor a _float_.
+The above program will reuse the internal library of coprosize. Note that 'diameter' must be given as a _string slice_ (of numbers and optionally including a dot)--the library won't work receiving neither an _integer_ nor a _floating point_.
 
 # INSTALLATION ON LINUX
 
