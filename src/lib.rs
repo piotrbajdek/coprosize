@@ -1,4 +1,4 @@
-// COPROSIZE VERSION 1.0.0-beta / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
+// COPROSIZE VERSION 1.0.0 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
 
 // LIBRARY
 
@@ -6,7 +6,7 @@
 
 pub fn citation() {
 
-   println!("Bajdek, P., 2022. coprosize (version 1.0.0-beta). [computer software] https://github.com/piotrbajdek/coprosize");
+   println!("Bajdek, P., 2022. coprosize (version 1.0.0). [computer software] https://github.com/piotrbajdek/coprosize");
    }
 
 // CARNIVOROUS AMNIOTA

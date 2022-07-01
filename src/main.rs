@@ -1,4 +1,4 @@
-// COPROSIZE VERSION 1.0.0-beta / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
+// COPROSIZE VERSION 1.0.0 / THE MIT LICENSE (MIT) © 2022 PIOTR BAJDEK
 
 // MAIN FILE
 
@@ -21,8 +21,8 @@ fn main() {
       if argument == "-a" || argument == "--about" {
 
       println!("Program:  coprosize");
-      println!("Version:  1.0.0-beta");
-      println!("Date:     July 1, 2022");
+      println!("Version:  1.0.0");
+      println!("Date:     July 2, 2022");
       println!("Author:   Piotr Bajdek");
       println!("Contact:  {}", blue_underlined.to_owned() + "piotr.bajdek@proton.me" + clear);
       println!("ORCID:    {}", blue_underlined.to_owned() + "https://orcid.org/0000-0003-2678-3122" + clear);
@@ -35,7 +35,7 @@ fn main() {
 
       if argument == "-c" || argument == "--changes" {
 
-      println!("--.--.---- v1.0.0 – Implemented {}", cyan.to_owned() + "--carnivorous --amniota" + clear + ", " + cyan + "--carnivorous --amphibia" + clear + ", " + cyan + "--carnivorous --archosauria" + clear + ", " + cyan + "--carnivorous --felidae" + clear + ", " + cyan + "--carnivorous --mammalia" + clear + ", " + cyan + "--carnivorous --squamata" + clear + ", " + cyan + "--carnivorous --tetrapoda" + clear + ", " + cyan + "--herbivorous --afrotheria" + clear + ", " + cyan + "--herbivorous --amniota" + clear + ", " + cyan + "--herbivorous --artiodactyla" + clear + ", " + cyan + "--herbivorous --aves" + clear + ", " + cyan + "--herbivorous --bovidae" + clear + ", " + cyan + "--herbivorous --cervidae" + clear + ", " + cyan + "--herbivorous --lagomorpha" + clear + ", " + cyan + "--herbivorous --mammalia" + clear  + ", " + cyan + "--herbivorous --marsupialia" + clear + ", " + cyan + "--herbivorous --placentalia" + clear + ", " + cyan + "--herbivorous --reptilia" + clear + ", " + cyan + "--herbivorous --rodentia" + clear + ", " + cyan + "--omnivorous --amniota" + clear + ", " + cyan + "--omnivorous --artiodactyla" + clear + ", " + cyan + "--omnivorous --aves" + clear + ", " + cyan + "--omnivorous --mammalia" + clear + ", " + cyan + "--omnivorous --rodentia" + clear + ", " + cyan + "--unspecified --canidae" + clear + ", " + cyan + "--unspecified --carnivora" + clear + ", " + cyan + "--unspecified --cricetidae" + clear + ", " + cyan + "--unspecified --herpestidae" + clear + ", " + cyan + "--unspecified --marsupialia" + clear + ", " + cyan + "--unspecified --mustelidae" + clear + ", " + cyan + "--unspecified --sciuridae" + clear + ", " + cyan + "--unspecified --testudines" + clear);
+      println!("02.07.2022 v1.0.0 – Implemented {}", cyan.to_owned() + "--carnivorous --amniota" + clear + ", " + cyan + "--carnivorous --amphibia" + clear + ", " + cyan + "--carnivorous --archosauria" + clear + ", " + cyan + "--carnivorous --felidae" + clear + ", " + cyan + "--carnivorous --mammalia" + clear + ", " + cyan + "--carnivorous --squamata" + clear + ", " + cyan + "--carnivorous --tetrapoda" + clear + ", " + cyan + "--herbivorous --afrotheria" + clear + ", " + cyan + "--herbivorous --amniota" + clear + ", " + cyan + "--herbivorous --artiodactyla" + clear + ", " + cyan + "--herbivorous --aves" + clear + ", " + cyan + "--herbivorous --bovidae" + clear + ", " + cyan + "--herbivorous --cervidae" + clear + ", " + cyan + "--herbivorous --lagomorpha" + clear + ", " + cyan + "--herbivorous --mammalia" + clear  + ", " + cyan + "--herbivorous --marsupialia" + clear + ", " + cyan + "--herbivorous --placentalia" + clear + ", " + cyan + "--herbivorous --reptilia" + clear + ", " + cyan + "--herbivorous --rodentia" + clear + ", " + cyan + "--omnivorous --amniota" + clear + ", " + cyan + "--omnivorous --artiodactyla" + clear + ", " + cyan + "--omnivorous --aves" + clear + ", " + cyan + "--omnivorous --mammalia" + clear + ", " + cyan + "--omnivorous --rodentia" + clear + ", " + cyan + "--unspecified --canidae" + clear + ", " + cyan + "--unspecified --carnivora" + clear + ", " + cyan + "--unspecified --cricetidae" + clear + ", " + cyan + "--unspecified --herpestidae" + clear + ", " + cyan + "--unspecified --marsupialia" + clear + ", " + cyan + "--unspecified --mustelidae" + clear + ", " + cyan + "--unspecified --sciuridae" + clear + ", " + cyan + "--unspecified --testudines" + clear);
       return;
       }
 
@@ -128,8 +128,8 @@ fn main() {
 
       if argument == "-v" || argument == "--version" {
 
-      println!("Version: 1.0.0-beta");
-      println!("July 1, 2022");
+      println!("Version: 1.0.0");
+      println!("July 2, 2022");
       return;
       }
    }
@@ -527,10 +527,9 @@ fn main() {
    let diameter = args.get(3).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
 
       if diameter == "-s" || diameter == "--subgroups" {
+         println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
          let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
          coprosize::herbivorous_rodentia(diameter);
-         println!("");
-         coprosize::herbivorous_lagomorpha(diameter);
          return;
       }
 

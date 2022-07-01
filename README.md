@@ -6,8 +6,6 @@ As it is aimed for science, [coprosize](https://github.com/piotrbajdek/coprosize
 
 [keywords (en-AU): animal scats, archaeology, biology, body mass, body size, coprolites, dung, fossil faeces, fossils, geology, ichnology, palaeontology, scientific computing, weight; (en-US): fossil feces, paleontology]
 
-**As of v1.0.0-beta, coprosize remains in an unstable fast-development phase. This program version is not intended for scientific research but for presentation of the technology and testing!**
-
 # USAGE
 
 [Static link to a changeable image of the _most recent_ version of coprosize! This may include pre-releases!]
@@ -26,15 +24,15 @@ As it is aimed for science, [coprosize](https://github.com/piotrbajdek/coprosize
 
 Please, always refer to a specific program version--implemented formulae are subject to change if new data are available (or simply studied by the author) or bugs of any kind are detected. Although coprosize is designed with the needs of a user in mind, you are perfectly OK to use my models in your study without really installing it as long as you cite this computer program as the original source:
 
-Bajdek, P., 2022. coprosize (version 1.0.0-beta). [computer software] https://github.com/piotrbajdek/coprosize
+Bajdek, P., 2022. coprosize (version 1.0.0). [computer software] https://github.com/piotrbajdek/coprosize
 
-You are also OK to modify and fork coprosize under terms of the [MIT license](https://github.com/piotrbajdek/coprosize/blob/main/LICENSE). It is moreover possible to link against coprosize using its library as a dependency for other bioinformatics projects (see [public functions](https://docs.rs/coprosize/1.0.0-beta/coprosize/#functions)). The usage is best explained by example:
+You are also OK to modify and fork coprosize under terms of the [MIT license](https://github.com/piotrbajdek/coprosize/blob/main/LICENSE). It is moreover possible to link against coprosize using its library as a dependency for other bioinformatics projects (see [public functions](https://docs.rs/coprosize/1.0.0/coprosize/#functions)). The usage is best explained by example:
 
 Add to your `Cargo.toml` file:
 
 ```
 [dependencies]
-coprosize = "1.0.0-beta"
+coprosize = "1.0.0"
 ```
 
 Put in your `src/main.rs` file:
@@ -63,7 +61,7 @@ The above program will reuse the internal library of coprosize. Note that 'diame
 
 **1.** Install from crates.io by the use of cargo:
 
-_cargo install coprosize \--version 1.0.0-beta_
+_cargo install coprosize_
 
 By default, the file will be downloaded to `.cargo/bin/`, a hidden folder in your home directory.
 
@@ -75,7 +73,7 @@ By default, the file will be downloaded to `.cargo/bin/`, a hidden folder in you
 
 **1.** Download the binary 'coprosize' for Linux x86_64 from GitHub:
 
-https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-beta
+https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0
 
 **2.** Make the file executable:
 
@@ -93,7 +91,7 @@ _sudo cp coprosize /var/usrlocal/bin/_
 
 Download the coprosize source from GitHub. Then, build and install the program:
 
-https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0-beta
+https://github.com/piotrbajdek/coprosize/releases/tag/v1.0.0
 
 _cargo build \--release && sudo cp target/release/coprosize /usr/bin/_
 
