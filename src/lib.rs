@@ -3,6 +3,7 @@
 // LIBRARY
 
 pub mod colors;
+use colors::*;
 
 // CITATION
 
@@ -12,1064 +13,509 @@ pub fn citation() {
 
 // CARNIVOROUS AMNIOTA
 
-pub fn carnivorous_amniota(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn carnivorous_amniota(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.4839053017);
     let mass = 0.0030393430 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0030393430 * {}²·⁴⁸³⁹⁰⁵³⁰¹⁷", diameter);
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0030393430 * {}",
-        diameter.to_owned() + "²·⁴⁸³⁹⁰⁵³⁰¹⁷" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous synapsids and sauropsids" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous synapsids and sauropsids")
     );
 }
 
 // CARNIVOROUS AMPHIBIA
 
-pub fn carnivorous_amphibia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn carnivorous_amphibia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power1 = f32::powi(dcal as f32, 3);
     let power2 = f32::powi(dcal as f32, 2);
-    let mass =
-        (0.0004064349 * power1) - (0.0041616775 * power2) + (0.0147514015 * dcal) - 0.0122201640;
+    let mass = (0.0004064349 * power1) - (0.0041616775 * power2) + (0.0147514015 * dcal) - 0.0122201640;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0004064349 * {}",
-        diameter.to_owned()
-            + "³ - 0.0041616775 * "
-            + diameter
-            + "² + 0.0147514015 * "
-            + diameter
-            + " - 0.0122201640"
-            + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous batrachians" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0004064349 * {diameter}³ - 0.0041616775 * {diameter}² + 0.0147514015 * {diameter} - 0.0122201640");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant carnivorous batrachians"));
 }
 
 // CARNIVOROUS ARCHOSAURIA
 
-pub fn carnivorous_archosauria(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn carnivorous_archosauria(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.3933363596);
     let mass = 0.0056582325 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0056582325 * {diameter}²·³⁹³³³⁶³⁵⁹⁶");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0056582325 * {}",
-        diameter.to_owned() + "²·³⁹³³³⁶³⁵⁹⁶" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous birds and crocodilians" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous birds and crocodilians")
     );
 }
 
 // CARNIVOROUS FELIDAE
 
-pub fn carnivorous_felidae(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn carnivorous_felidae(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 3.7646426827);
     let mass = 0.0001836115 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0001836115 * {}",
-        diameter.to_owned() + "³·⁷⁶⁴⁶⁴²⁶⁸²⁷" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous felids" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0001836115 * {diameter}³·⁷⁶⁴⁶⁴²⁶⁸²⁷");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant carnivorous felids"));
 }
 
 // CARNIVOROUS MAMMALIA
 
-pub fn carnivorous_mammalia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn carnivorous_mammalia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.6010376216);
     let mass = 0.0029493394 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0029493394 * {diameter}²·⁶⁰¹⁰³⁷⁶²¹⁶");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0029493394 * {}",
-        diameter.to_owned() + "²·⁶⁰¹⁰³⁷⁶²¹⁶" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous placentals and monotremes" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous placentals and monotremes")
     );
 }
 
 // CARNIVOROUS SQUAMATA
 
-pub fn carnivorous_squamata(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn carnivorous_squamata(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.3414629141);
     let mass = 0.0004822862 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0004822862 * {}",
-        diameter.to_owned() + "²·³⁴¹⁴⁶²⁹¹⁴¹" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous squamates" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+
+    println!(" = 0.0004822862 * {diameter}²·³⁴¹⁴⁶²⁹¹⁴¹");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant carnivorous squamates"));
 }
 
 // CARNIVOROUS TETRAPODA
 
-pub fn carnivorous_tetrapoda(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn carnivorous_tetrapoda(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.6157600696);
     let mass = 0.0017879339 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0017879339 * {diameter}²·⁶¹⁵⁷⁶⁰⁰⁶⁹⁶");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0017879339 * {}",
-        diameter.to_owned() + "²·⁶¹⁵⁷⁶⁰⁰⁶⁹⁶" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous amphibians and amniotes" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous amphibians and amniotes")
     );
 }
 
 // HERBIVOROUS AFROTHERIA
 
-pub fn herbivorous_afrotheria(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_afrotheria(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.7889164772);
     let mass = 0.0024866807 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0024866807 * {}",
-        diameter.to_owned() + "²·⁷⁸⁸⁹¹⁶⁴⁷⁷²" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous afrotherians" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0024866807 * {diameter}²·⁷⁸⁸⁹¹⁶⁴⁷⁷²");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous afrotherians"));
 }
 
 // HERBIVOROUS AMNIOTA
 
-pub fn herbivorous_amniota(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_amniota(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.2123196655);
     let mass = 0.0733160890 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0733160890 * {diameter}²·²¹²³¹⁹⁶⁶⁵⁵");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0733160890 * {}",
-        diameter.to_owned() + "²·²¹²³¹⁹⁶⁶⁵⁵" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous synapsids and sauropsids" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant herbivorous synapsids and sauropsids")
     );
 }
 
 // HERBIVOROUS ARTIODACTYLA
 
-pub fn herbivorous_artiodactyla(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_artiodactyla(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.3109191553);
     let mass = 0.4817803510 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.4817803510 * {}",
-        diameter.to_owned() + "²·³¹⁰⁹¹⁹¹⁵⁵³" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous artiodactyls" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.4817803510 * {diameter}²·³¹⁰⁹¹⁹¹⁵⁵³");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous artiodactyls"));
 }
 
 // HERBIVOROUS AVES
 
-pub fn herbivorous_aves(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_aves(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.8100206869);
     let mass = 0.0078389131 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0078389131 * {}",
-        diameter.to_owned() + "²·⁸¹⁰⁰²⁰⁶⁸⁶⁹" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous birds" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0078389131 * {diameter}²·⁸¹⁰⁰²⁰⁶⁸⁶⁹");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous birds"));
 }
 
 // HERBIVOROUS BOVIDAE
 
-pub fn herbivorous_bovidae(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_bovidae(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.1885588774);
     let mass = 0.6525042837 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.6525042837 * {}",
-        diameter.to_owned() + "²·¹⁸⁸⁵⁵⁸⁸⁷⁷⁴" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous bovids" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.6525042837 * {diameter}²·¹⁸⁸⁵⁵⁸⁸⁷⁷⁴");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous bovids"));
 }
 
 // HERBIVOROUS CERVIDAE
 
-pub fn herbivorous_cervidae(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_cervidae(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 3.4595227094);
     let mass = 0.0209279246 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0209279246 * {}",
-        diameter.to_owned() + "³·⁴⁵⁹⁵²²⁷⁰⁹⁴" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous cervids" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0209279246 * {diameter}³·⁴⁵⁹⁵²²⁷⁰⁹⁴");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous cervids"));
 }
 
 // HERBIVOROUS LAGOMORPHA
 
-pub fn herbivorous_lagomorpha(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_lagomorpha(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.3225288441);
     let mass = 0.0083097861 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0083097861 * {}",
-        diameter.to_owned() + "²·³²²⁵²⁸⁸⁴⁴¹" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous lagomorphs" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0083097861 * {diameter}²·³²²⁵²⁸⁸⁴⁴¹");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous lagomorphs"));
 }
 
 // HERBIVOROUS MAMMALIA
 
-pub fn herbivorous_mammalia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_mammalia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.1815554929);
     let mass = 0.0859205551 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0859205551 * {diameter}²·¹⁸¹⁵⁵⁵⁴⁹²⁹");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0859205551 * {}",
-        diameter.to_owned() + "²·¹⁸¹⁵⁵⁵⁴⁹²⁹" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous placentals and marsupials" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant herbivorous placentals and marsupials")
     );
 }
 
 // HERBIVOROUS MARSUPIALIA
 
-pub fn herbivorous_marsupialia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_marsupialia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.2193247015);
     let mass = 0.0224440978 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0224440978 * {}",
-        diameter.to_owned() + "²·²¹⁹³²⁴⁷⁰¹⁵" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous marsupials" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0224440978 * {diameter}²·²¹⁹³²⁴⁷⁰¹⁵");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous marsupials"));
 }
 
 // HERBIVOROUS PLACENTALIA
 
-pub fn herbivorous_placentalia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_placentalia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.2424443852);
     let mass = 0.0879148644 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0879148644 * {}",
-        diameter.to_owned() + "²·²⁴²⁴⁴⁴³⁸⁵²" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous placentals" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0879148644 * {diameter}²·²⁴²⁴⁴⁴³⁸⁵²");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous placentals"));
 }
 
 // HERBIVOROUS REPTILIA
 
-pub fn herbivorous_reptilia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_reptilia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.8272692414);
     let mass = 0.0076217107 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0076217107 * {}",
-        diameter.to_owned() + "²·⁸²⁷²⁶⁹²⁴¹⁴" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous birds and turtles" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0076217107 * {diameter}²·⁸²⁷²⁶⁹²⁴¹⁴");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous birds and turtles"));
 }
 
 // HERBIVOROUS RODENTIA
 
-pub fn herbivorous_rodentia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn herbivorous_rodentia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.2974489103);
     let mass = 0.0196247359 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0196247359 * {}",
-        diameter.to_owned() + "²·²⁹⁷⁴⁴⁸⁹¹⁰³" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous rodents" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0196247359 * {diameter}²·²⁹⁷⁴⁴⁸⁹¹⁰³");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant herbivorous rodents"));
 }
 
 // OMNIVOROUS AMNIOTA
 
-pub fn omnivorous_amniota(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn omnivorous_amniota(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.2146716042);
     let mass = 0.0128321404 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0128321404 * {diameter}²·²¹⁴⁶⁷¹⁶⁰⁴²");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0128321404 * {}",
-        diameter.to_owned() + "²·²¹⁴⁶⁷¹⁶⁰⁴²" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant omnivorous synapsids and sauropsids" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant omnivorous synapsids and sauropsids")
     );
 }
 
 // OMNIVOROUS ARTIODACTYLA
 
-pub fn omnivorous_artiodactyla(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn omnivorous_artiodactyla(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 1.0887395414);
     let mass = 1.2390608405 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 1.2390608405 * {}",
-        diameter.to_owned() + "¹·⁰⁸⁸⁷³⁹⁵⁴¹⁴" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant omnivorous artiodactyls" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 1.2390608405 * {diameter}¹·⁰⁸⁸⁷³⁹⁵⁴¹⁴");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant omnivorous artiodactyls"));
 }
 
 // OMNIVOROUS AVES
 
-pub fn omnivorous_aves(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn omnivorous_aves(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 3.0157553176);
     let mass = 0.0014342026 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0014342026 * {}",
-        diameter.to_owned() + "³·⁰¹⁵⁷⁵⁵³¹⁷⁶" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant omnivorous birds" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0014342026 * {diameter}³·⁰¹⁵⁷⁵⁵³¹⁷⁶");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant omnivorous birds"));
 }
 
 // OMNIVOROUS MAMMALIA
 
-pub fn omnivorous_mammalia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn omnivorous_mammalia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.0562969771);
     let mass = 0.0223667325 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0223667325 * {diameter}²·⁰⁵⁶²⁹⁶⁹⁷⁷¹");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0223667325 * {}",
-        diameter.to_owned() + "²·⁰⁵⁶²⁹⁶⁹⁷⁷¹" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant omnivorous placentals and marsupials" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant omnivorous placentals and marsupials")
     );
 }
 
 // OMNIVOROUS RODENTIA
 
-pub fn omnivorous_rodentia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn omnivorous_rodentia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 1.6780088221);
     let mass = 0.0331020696 * power;
 
-    print!("{}", cyan);
-    println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0331020696 * {}",
-        diameter.to_owned() + "¹·⁶⁷⁸⁰⁰⁸⁸²²¹" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant omnivorous rodents" + clear
-    );
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0331020696 * {diameter}¹·⁶⁷⁸⁰⁰⁸⁸²²¹");
+    println!("{}{}", colorize(CYAN, "Regression model based on: "), colorize(BRIGHT_YELLOW, "extant omnivorous rodents"));
 }
 
 // UNSPECIFIED CANIDAE
 
-pub fn unspecified_canidae(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn unspecified_canidae(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.0396557894);
     let mass = 0.0205937247 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0205937247 * {diameter}²·⁰³⁹⁶⁵⁵⁷⁸⁹⁴");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0205937247 * {}",
-        diameter.to_owned() + "²·⁰³⁹⁶⁵⁵⁷⁸⁹⁴" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous and omnivorous canids" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous and omnivorous canids")
     );
 }
 
 // UNSPECIFIED CARNIVORA
 
-pub fn unspecified_carnivora(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn unspecified_carnivora(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.8590076963);
     let mass = 0.0015578285 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0015578285 * {diameter}²·⁸⁵⁹⁰⁰⁷⁶⁹⁶³");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0015578285 * {}",
-        diameter.to_owned() + "²·⁸⁵⁹⁰⁰⁷⁶⁹⁶³" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous and omnivorous carnivorans" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous and omnivorous carnivorans")
     );
 }
 
 // UNSPECIFIED CRICETIDAE
 
-pub fn unspecified_cricetidae(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn unspecified_cricetidae(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(1.8766049284, dcal as f32);
     let mass = 0.0180745732 * power;
 
-    let str1 = diameter;
-    let str2 = &str1.replace(".", "·");
-    let str3 = &str2.replace("0", "⁰");
-    let str4 = &str3.replace("1", "¹");
-    let str5 = &str4.replace("2", "²");
-    let str6 = &str5.replace("3", "³");
-    let str7 = &str6.replace("4", "⁴");
-    let str8 = &str7.replace("5", "⁵");
-    let str9 = &str8.replace("6", "⁶");
-    let str10 = &str9.replace("7", "⁷");
-    let str11 = &str10.replace("8", "⁸");
-    let dmpw = &str11.replace("9", "⁹");
+    let dmpw = superscript_number(diameter);
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0180745732 * 1.8766049284{dmpw}");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(" = 0.0180745732 * 1.8766049284{}", dmpw.to_owned() + cyan);
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous and omnivorous cricetids" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant herbivorous and omnivorous cricetids")
     );
 }
 
 // UNSPECIFIED HERPESTIDAE
 
-pub fn unspecified_herpestidae(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn unspecified_herpestidae(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(1.0767216732, dcal as f32);
     let mass = 0.3503054969 * power;
 
-    let str1 = diameter;
-    let str2 = &str1.replace(".", "·");
-    let str3 = &str2.replace("0", "⁰");
-    let str4 = &str3.replace("1", "¹");
-    let str5 = &str4.replace("2", "²");
-    let str6 = &str5.replace("3", "³");
-    let str7 = &str6.replace("4", "⁴");
-    let str8 = &str7.replace("5", "⁵");
-    let str9 = &str8.replace("6", "⁶");
-    let str10 = &str9.replace("7", "⁷");
-    let str11 = &str10.replace("8", "⁸");
-    let dmpw = &str11.replace("9", "⁹");
+    let dmpw = superscript_number(diameter);
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.3503054969 * 1.0767216732{}", dmpw);
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(" = 0.3503054969 * 1.0767216732{}", dmpw.to_owned() + cyan);
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous and omnivorous herpestids" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous and omnivorous herpestids")
     );
 }
 
 // UNSPECIFIED MARSUPIALIA
 
-pub fn unspecified_marsupialia(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn unspecified_marsupialia(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.1922202080);
     let mass = 0.0231733783 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0231733783 * {diameter}²·¹⁹²²²⁰²⁰⁸⁰");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0231733783 * {}",
-        diameter.to_owned() + "²·¹⁹²²²⁰²⁰⁸⁰" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous and omnivorous marsupials" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant herbivorous and omnivorous marsupials")
     );
 }
 
 // UNSPECIFIED MUSTELIDAE
 
-pub fn unspecified_mustelidae(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn unspecified_mustelidae(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.5225036146);
     let mass = 0.0038273352 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0038273352 * {diameter}²·⁵²²⁵⁰³⁶¹⁴⁶");
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0038273352 * {}",
-        diameter.to_owned() + "²·⁵²²⁵⁰³⁶¹⁴⁶" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant carnivorous and omnivorous mustelids" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous and omnivorous mustelids")
     );
 }
 
 // UNSPECIFIED SCIURIDAE
 
-pub fn unspecified_sciuridae(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn unspecified_sciuridae(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(1.7069919381, dcal as f32);
     let mass = 0.0384600726 * power;
 
-    let str1 = diameter;
-    let str2 = &str1.replace(".", "·");
-    let str3 = &str2.replace("0", "⁰");
-    let str4 = &str3.replace("1", "¹");
-    let str5 = &str4.replace("2", "²");
-    let str6 = &str5.replace("3", "³");
-    let str7 = &str6.replace("4", "⁴");
-    let str8 = &str7.replace("5", "⁵");
-    let str9 = &str8.replace("6", "⁶");
-    let str10 = &str9.replace("7", "⁷");
-    let str11 = &str10.replace("8", "⁸");
-    let dmpw = &str11.replace("9", "⁹");
+    let dmpw = superscript_number(diameter);
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0384600726 * 1.7069919381{}", dmpw);
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
-    );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(" = 0.0384600726 * 1.7069919381{}", dmpw.to_owned() + cyan);
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned() + " extant herbivorous and omnivorous sciurids" + clear
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant herbivorous and omnivorous sciurids")
     );
 }
 
 // UNSPECIFIED TESTUDINES
 
-pub fn unspecified_testudines(diameter: &str) {
-    let clear = "\x1b[0m"; // reset the font color
-    let red = "\x1b[31m";
-    let bright_yellow = "\x1b[93m";
-    let cyan = "\x1b[36m";
-
-    let dcal: f32 = diameter.parse().expect(
-        &(red.to_owned() + "Incorrect diameter value! Program only processes numbers!" + clear),
-    );
+pub fn unspecified_testudines(diameter: f32) {
+    let dcal: f32 = diameter;
     let power = f32::powf(dcal as f32, 2.1345692041);
     let mass = 0.0251303814 * power;
 
-    print!("{}", cyan);
+    println!("{}{}", colorize(CYAN, "Coprolite diameter: "), colorize(BRIGHT_YELLOW, &format!("{diameter} mm")));
+    print!("{}{}", colorize(CYAN, "Producer's body mass: "), colorize(BRIGHT_YELLOW, &format!("{mass:.3} kg")));
+    println!(" = 0.0251303814 * {diameter}²·¹³⁴⁵⁶⁹²⁰⁴¹");
+
     println!(
-        "Coprolite diameter: {}",
-        bright_yellow.to_owned() + diameter + " mm" + cyan
+        "{}{}",
+        colorize(CYAN, "Regression model based on: "),
+        colorize(BRIGHT_YELLOW, "extant carnivorous, herbivorous and omnivorous turtles")
     );
-    print!("Producer's body mass: {}", bright_yellow.to_owned());
-    print!("{:.3}", mass);
-    print!(" kg{}", clear.to_owned());
-    println!(
-        " = 0.0251303814 * {}",
-        diameter.to_owned() + "²·¹³⁴⁵⁶⁹²⁰⁴¹" + cyan
-    );
-    println!(
-        "Regression model based on:{}",
-        bright_yellow.to_owned()
-            + " extant carnivorous, herbivorous and omnivorous turtles"
-            + clear
-    );
+}
+
+fn superscript_number(num: f32) -> String {
+    num.to_string()
+        .chars()
+        .map(|c| match c {
+            '.' => '·',
+            '0' => '⁰',
+            '1' => '¹',
+            '2' => '²',
+            '3' => '³',
+            '4' => '⁴',
+            '5' => '⁵',
+            '6' => '⁶',
+            '7' => '⁷',
+            '8' => '⁸',
+            '9' => '⁹',
+            x => x,
+        })
+        .collect()
 }

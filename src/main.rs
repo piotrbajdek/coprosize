@@ -203,7 +203,7 @@ fn main() {
 
     use Diet::*;
     use Taxon::*;
-    let diameter = &args.diameter.to_string();
+    let diameter = args.diameter;
     match (args.diet, args.taxon) {
         // CARNIVOROUS AMNIOTA
         (Carnivorous, Amniota) => {
@@ -666,7 +666,6 @@ impl Args {
             let a = args.next().ok_or(Error::NotEnoughArguments)?;
             let b = args.next().ok_or(Error::NotEnoughArguments)?;
             let (a, b) = (a.strip_prefix("--").unwrap_or(&a), b.strip_prefix("--").unwrap_or(&b));
-            println!("{:?} {:?}", a, b);
             if let (Ok(diet), Ok(taxon)) = (a.parse::<Diet>(), b.parse::<Taxon>()) {
                 (diet, taxon)
             } else if let (Ok(taxon), Ok(diet)) = (a.parse::<Taxon>(), b.parse::<Diet>()) {
