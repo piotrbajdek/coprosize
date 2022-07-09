@@ -3,7 +3,7 @@
 // MAIN FILE
 
 use coprosize::colors::*;
-use std::env;
+use std::{env, num::ParseFloatError, str::FromStr};
 
 fn main() {
     let clear = "\x1b[0m"; // reset the font color
@@ -418,7 +418,7 @@ fn main() {
         let diameter = args.get(3).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
 
         if diameter == "-s" || diameter == "--subgroups" {
-            println!("{}", red.to_owned() + "No subgroups available for this taxon and diet" + clear);
+            println!("{}", colorize(RED, "No subgroups available for this taxon and diet"));
             let diameter = args.get(4).expect(&(red.to_owned() + "No diameter inserted! See: --help" + clear));
             coprosize::herbivorous_aves(diameter);
             return;
@@ -809,4 +809,152 @@ fn main() {
     // INVALID ARGUMENT [1] AND/OR [2]
 
     panic!("{}", red.to_owned() + "Invalid arguments provided! See: --help" + clear);
+}
+
+#[derive(Debug, Clone)]
+pub enum Error {
+    NotEnoughArguments,
+    UnknownDietOrTaxon,
+    MissingDiameter,
+    FailedParsingDiameter(ParseFloatError),
+}
+
+impl From<ParseFloatError> for Error {
+    fn from(e: ParseFloatError) -> Self {
+        Self::FailedParsingDiameter(e)
+    }
+}
+
+#[derive(Debug, Copy, Clone)]
+pub enum Diet {
+    Carnivorous,
+    Herbivorous,
+    Omnivorous,
+    Unspecified,
+}
+
+impl FromStr for Diet {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        Ok(match s.to_lowercase().as_str() {
+            "carnivorous" => Self::Carnivorous,
+            "herbivorous" => Self::Herbivorous,
+            "omnivorous" => Self::Omnivorous,
+            "unspecified" => Self::Unspecified,
+            _ => return Err(()),
+        })
+    }
+}
+
+#[derive(Debug, Copy, Clone)]
+pub enum Taxon {
+    Afrotheria,
+    Amniota,
+    Amphibia,
+    Archosauria,
+    Artiodactyla,
+    Aves,
+    Bovidae,
+    Canidae,
+    Carnivora,
+    Cervidae,
+    Cricetidae,
+    Felidae,
+    Herpestidae,
+    Lagomorpha,
+    Mammalia,
+    Marsupialia,
+    Mustelidae,
+    Placentalia,
+    Reptilia,
+    Rodentia,
+    Sciuridae,
+    Squamata,
+    Testudines,
+    Tetrapoda,
+}
+
+impl FromStr for Taxon {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        Ok(match s.to_lowercase().as_str() {
+            "afrotheria" => Self::Afrotheria,
+            "amniota" => Self::Amniota,
+            "amphibia" => Self::Amphibia,
+            "archosauria" => Self::Archosauria,
+            "artiodactyla" => Self::Artiodactyla,
+            "aves" => Self::Aves,
+            "bovidae" => Self::Bovidae,
+            "canidae" => Self::Canidae,
+            "carnivora" => Self::Carnivora,
+            "cervidae" => Self::Cervidae,
+            "cricetidae" => Self::Cricetidae,
+            "felidae" => Self::Felidae,
+            "herpestidae" => Self::Herpestidae,
+            "lagomorpha" => Self::Lagomorpha,
+            "mammalia" => Self::Mammalia,
+            "marsupialia" => Self::Marsupialia,
+            "mustelidae" => Self::Mustelidae,
+            "placentalia" => Self::Placentalia,
+            "reptilia" => Self::Reptilia,
+            "rodentia" => Self::Rodentia,
+            "sciuridae" => Self::Sciuridae,
+            "squamata" => Self::Squamata,
+            "testudines" => Self::Testudines,
+            "tetrapoda" => Self::Tetrapoda,
+            _ => return Err(()),
+        })
+    }
+}
+
+#[derive(Debug, Clone)]
+pub struct Args {
+    diet: Diet,
+    taxon: Taxon,
+    diameter: f32,
+    subgroups: bool,
+}
+
+impl Args {
+    pub fn from_args() -> Result<Self, Error> {
+        let mut args = env::args();
+        let (diet, taxon) = {
+            // not enough arguments
+            let a = args.next().ok_or(Error::NotEnoughArguments)?;
+            let b = args.next().ok_or(Error::NotEnoughArguments)?;
+            let (a, b) = (a.strip_prefix("--").unwrap_or(&a), b.strip_prefix("--").unwrap_or(&b));
+            if let (Ok(diet), Ok(taxon)) = (a.parse::<Diet>(), b.parse::<Taxon>()) {
+                (diet, taxon)
+            } else if let (Ok(taxon), Ok(diet)) = (a.parse::<Taxon>(), b.parse::<Diet>()) {
+                (diet, taxon)
+            } else {
+                // unrecognized diet or taxon
+                return Err(Error::UnknownDietOrTaxon);
+            }
+        };
+
+        let (diameter, subgroups) = match (args.next(), args.next()) {
+            (Some(maybe_extra_flag), Some(maybe_diameter)) => {
+                if maybe_extra_flag == "-s" || maybe_extra_flag == "--subgroups" {
+                    (maybe_diameter.parse::<f32>()?, true)
+                } else {
+                    // treat extra flag like the diameter
+                    (maybe_extra_flag.parse::<f32>()?, false)
+                }
+            }
+            (Some(diameter), None) => {
+                // couldn't parse diameter
+                let diameter = diameter.parse::<f32>()?;
+                (diameter, false)
+            }
+            _ => {
+                // not enough args, need diameter
+                return Err(Error::MissingDiameter);
+            }
+        };
+
+        Ok(Self { diet, taxon, diameter, subgroups })
+    }
 }
