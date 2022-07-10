@@ -3,7 +3,7 @@
 // MAIN FILE
 
 use coprosize::colors::*;
-use std::{env, num::ParseFloatError, str::FromStr};
+use std::{env, fmt::Display, num::ParseFloatError, str::FromStr};
 
 fn main() {
     // ARGUMENTS ANYWHERE WITHIN THE STRING
@@ -62,6 +62,7 @@ fn main() {
             ];
             print!("02.07.2022 v1.0.0 – Implemented");
             for (index, implemented) in all_implemented.into_iter().enumerate() {
+                // if this is the last entry, don't put a trailing comma
                 let between_delimiter = if index + 1 == all_implemented.len() { "" } else { ", " };
                 print!("{}{}", colorize(CYAN, implemented), between_delimiter);
             }
@@ -199,7 +200,13 @@ fn main() {
 
     // COLLECT ARGUMENTS FOR CALCULATIONS
 
-    let args = Args::from_args().unwrap();
+    let args = match Args::from_args() {
+        Ok(args) => args,
+        Err(e) => {
+            eprintln!("Error: {}", e);
+            return;
+        }
+    };
 
     use Diet::*;
     use Taxon::*;
@@ -548,13 +555,13 @@ fn main() {
             coprosize::unspecified_testudines(diameter);
         }
 
-        _ => panic!("{}", colorize(RED, "Invalid arguments provided! See: --help")),
+        (diet, taxon) => eprintln!("{}", colorize(RED, &format!("Error: Unknown diet/taxon combo \"{diet:?}\" and \"{taxon:?}\"! See: --help"))),
     }
 }
 
 #[derive(Debug, Clone)]
 pub enum Error {
-    NotEnoughArguments,
+    MissingDietOrTaxon,
     UnknownDietOrTaxon,
     MissingDiameter,
     FailedParsingDiameter(ParseFloatError),
@@ -565,6 +572,19 @@ impl From<ParseFloatError> for Error {
         Self::FailedParsingDiameter(e)
     }
 }
+
+impl Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Error::MissingDietOrTaxon => write!(f, "{}", colorize(RED, "Not enough arguments provided! See: --help")),
+            Error::UnknownDietOrTaxon => write!(f, "{}", colorize(RED, "Unrecognized diet or taxon, See: --help")),
+            Error::MissingDiameter => write!(f, "{}", colorize(RED, "Missing diameter argument! See: --help")),
+            Error::FailedParsingDiameter(e) => write!(f, "{}", colorize(RED, &format!("Couldn't parse diameter: {:?}", e))),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 #[derive(Debug, Copy, Clone)]
 pub enum Diet {
@@ -663,8 +683,8 @@ impl Args {
         let mut args = env::args().skip(1);
         let (diet, taxon) = {
             // not enough arguments
-            let a = args.next().ok_or(Error::NotEnoughArguments)?;
-            let b = args.next().ok_or(Error::NotEnoughArguments)?;
+            let a = args.next().ok_or(Error::MissingDietOrTaxon)?;
+            let b = args.next().ok_or(Error::MissingDietOrTaxon)?;
             let (a, b) = (a.strip_prefix("--").unwrap_or(&a), b.strip_prefix("--").unwrap_or(&b));
             if let (Ok(diet), Ok(taxon)) = (a.parse::<Diet>(), b.parse::<Taxon>()) {
                 (diet, taxon)
@@ -686,7 +706,6 @@ impl Args {
                 }
             }
             (Some(diameter), None) => {
-                // couldn't parse diameter
                 let diameter = diameter.parse::<f32>()?;
                 (diameter, false)
             }
