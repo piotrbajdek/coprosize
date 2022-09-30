@@ -1,6 +1,6 @@
 [package]
 name = "coprosize"
-version = "1.0.1"
+version = "1.0.2"
 authors = ["Piotr Bajdek <piotr.bajdek@proton.me>"]
 edition = "2021"
 description = "command line tools for coprolite research (paleontology and archaeology): estimate the producer's body mass based on coprolite diameter by the use of regression models"
@@ -13,3 +13,4 @@ categories = ["algorithms", "command-line-utilities", "mathematics", "science"]
 [profile.release]
 opt-level = "z"
 codegen-units = 1
+strip = true

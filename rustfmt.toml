@@ -1,0 +1,10 @@
+fn_args_layout="Compressed"
+use_small_heuristics="Off"
+max_width=2000
+fn_call_width=2000
+attr_fn_like_width=2000
+struct_lit_width=2000
+struct_variant_width=2000
+array_width=2000
+chain_width=2000
+single_line_if_else_max_width=2000
