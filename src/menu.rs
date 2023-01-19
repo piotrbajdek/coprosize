@@ -1,4 +1,4 @@
-// COPROSIZE VERSION 1.0.2 / MIT LICENSE © 2022 PIOTR BAJDEK
+// COPROSIZE VERSION 1.0.3 / MIT LICENSE © 2022–2023 PIOTR BAJDEK
 
 // MODULE MENU
 
@@ -20,6 +20,7 @@ pub fn documentation() {
     let yellow = "\x1b[93m";
     let blue_underlined = "\x1b[34;4m";
     let cyan = "\x1b[36m";
+    let grey = "\x1b[38;5;240m";
 
     // ARGUMENTS ANYWHERE WITHIN THE STRING
 
@@ -27,23 +28,24 @@ pub fn documentation() {
         // ABOUT
 
         if argument == "-a" || argument == "--about" {
-            println!("Program:  {}", yellow.to_owned() + "coprosize" + reset);
-            println!("Version:  1.0.2");
-            println!("Date:     September 30, 2022");
-            println!("Author:   Piotr Bajdek");
-            println!("Contact:  {}", blue_underlined.to_owned() + "piotr.bajdek@proton.me" + reset);
-            println!("ORCID:    {}", blue_underlined.to_owned() + "https://orcid.org/0000-0003-2678-3122" + reset);
-            println!("Source:   {}", blue_underlined.to_owned() + "https://github.com/piotrbajdek/coprosize" + reset);
-            println!("License:  MIT License © 2022 Piotr Bajdek");
+            println!("{}", grey.to_owned() + "Program" + reset + ":  " + yellow + "coprosize" + reset);
+            println!("{}", grey.to_owned() + "Version" + reset + ":  1.0.3");
+            println!("{}", grey.to_owned() + "Date" + reset + ":     January 19, 2023");
+            println!("{}", grey.to_owned() + "Author" + reset + ":   Piotr Bajdek");
+            println!("{}", grey.to_owned() + "Contact" + reset + ":  " + blue_underlined + "piotr.bajdek@proton.me" + reset);
+            println!("{}", grey.to_owned() + "ORCID" + reset + ":    " + blue_underlined + "https://orcid.org/0000-0003-2678-3122" + reset);
+            println!("{}", grey.to_owned() + "Source" + reset + ":   " + blue_underlined + "https://github.com/piotrbajdek/coprosize" + reset);
+            println!("{}", grey.to_owned() + "License" + reset + ":  MIT License © 2022–2023 Piotr Bajdek");
             exit(0);
         }
 
         // CHANGES
 
         if argument == "-c" || argument == "--changes" {
-            println!("30.09.2022 v1.0.2 – Enhanced source code");
-            println!("16.08.2022 v1.0.1 – Enhanced source code and layout");
-            println!("02.07.2022 v1.0.0 – Implemented {}", cyan.to_owned() + "--carnivorous --amniota" + reset + ", " + cyan + "--carnivorous --amphibia" + reset + ", " + cyan + "--carnivorous --archosauria" + reset + ", " + cyan + "--carnivorous --felidae" + reset + ", " + cyan + "--carnivorous --mammalia" + reset + ", " + cyan + "--carnivorous --squamata" + reset + ", " + cyan + "--carnivorous --tetrapoda" + reset + ", " + cyan + "--herbivorous --afrotheria" + reset + ", " + cyan + "--herbivorous --amniota" + reset + ", " + cyan + "--herbivorous --artiodactyla" + reset + ", " + cyan + "--herbivorous --aves" + reset + ", " + cyan + "--herbivorous --bovidae" + reset + ", " + cyan + "--herbivorous --cervidae" + reset + ", " + cyan + "--herbivorous --lagomorpha" + reset + ", " + cyan + "--herbivorous --mammalia" + reset + ", " + cyan + "--herbivorous --marsupialia" + reset + ", " + cyan + "--herbivorous --placentalia" + reset + ", " + cyan + "--herbivorous --reptilia" + reset + ", " + cyan + "--herbivorous --rodentia" + reset + ", " + cyan + "--omnivorous --amniota" + reset + ", " + cyan + "--omnivorous --artiodactyla" + reset + ", " + cyan + "--omnivorous --aves" + reset + ", " + cyan + "--omnivorous --mammalia" + reset + ", " + cyan + "--omnivorous --rodentia" + reset + ", " + cyan + "--unspecified --canidae" + reset + ", " + cyan + "--unspecified --carnivora" + reset + ", " + cyan + "--unspecified --cricetidae" + reset + ", " + cyan + "--unspecified --herpestidae" + reset + ", " + cyan + "--unspecified --marsupialia" + reset + ", " + cyan + "--unspecified --mustelidae" + reset + ", " + cyan + "--unspecified --sciuridae" + reset + ", " + cyan + "--unspecified --testudines" + reset);
+            println!("{}", yellow.to_owned() + "19.01.2023 v1.0.3 – Enhanced source code and layout" + reset);
+            println!("30.09.2022 {}", yellow.to_owned() + "v1.0.2" + reset + " – Enhanced source code");
+            println!("16.08.2022 {}", yellow.to_owned() + "v1.0.1" + reset + " – Enhanced source code and layout");
+            println!("02.07.2022 {}", yellow.to_owned() + "v1.0.0" + reset + " – Implemented " + cyan + "--carnivorous --amniota" + reset + ", " + cyan + "--carnivorous --amphibia" + reset + ", " + cyan + "--carnivorous --archosauria" + reset + ", " + cyan + "--carnivorous --felidae" + reset + ", " + cyan + "--carnivorous --mammalia" + reset + ", " + cyan + "--carnivorous --squamata" + reset + ", " + cyan + "--carnivorous --tetrapoda" + reset + ", " + cyan + "--herbivorous --afrotheria" + reset + ", " + cyan + "--herbivorous --amniota" + reset + ", " + cyan + "--herbivorous --artiodactyla" + reset + ", " + cyan + "--herbivorous --aves" + reset + ", " + cyan + "--herbivorous --bovidae" + reset + ", " + cyan + "--herbivorous --cervidae" + reset + ", " + cyan + "--herbivorous --lagomorpha" + reset + ", " + cyan + "--herbivorous --mammalia" + reset + ", " + cyan + "--herbivorous --marsupialia" + reset + ", " + cyan + "--herbivorous --placentalia" + reset + ", " + cyan + "--herbivorous --reptilia" + reset + ", " + cyan + "--herbivorous --rodentia" + reset + ", " + cyan + "--omnivorous --amniota" + reset + ", " + cyan + "--omnivorous --artiodactyla" + reset + ", " + cyan + "--omnivorous --aves" + reset + ", " + cyan + "--omnivorous --mammalia" + reset + ", " + cyan + "--omnivorous --rodentia" + reset + ", " + cyan + "--unspecified --canidae" + reset + ", " + cyan + "--unspecified --carnivora" + reset + ", " + cyan + "--unspecified --cricetidae" + reset + ", " + cyan + "--unspecified --herpestidae" + reset + ", " + cyan + "--unspecified --marsupialia" + reset + ", " + cyan + "--unspecified --mustelidae" + reset + ", " + cyan + "--unspecified --sciuridae" + reset + ", " + cyan + "--unspecified --testudines" + reset);
             exit(0);
         }
 
@@ -59,7 +61,7 @@ pub fn documentation() {
         if argument == "-h" || argument == "--help" {
             println!("Usage:{}", yellow.to_owned() + "    coprosize [DIET / TAXON] [TAXON / DIET] [COPROLITE DIAMETER IN MM]");
             println!("      {}", yellow.to_owned() + "    coprosize [DIET / TAXON] [TAXON / DIET] [OPTIONS] [DIAMETER IN MM]");
-            println!("{}", reset);
+            println!("{reset}");
             println!("   Mamm.: {}", cyan.to_owned() + "--carnivorous --felidae       " + red + "[m]" + reset + " Model for carnivorous felids");
             println!("          {}", cyan.to_owned() + "--carnivorous --mammalia      " + red + "[l]" + reset + " Model for carnivorous mammalians");
             println!("          {}", cyan.to_owned() + "--herbivorous --afrotheria    " + red + "[l]" + reset + " Model for herbivor. afrotherians");
@@ -119,7 +121,7 @@ pub fn documentation() {
         if argument == "-l" || argument == "--license" {
             println!("{}", yellow.to_owned() + "MIT License" + reset);
             println!();
-            println!("Copyright © 2022 Piotr Bajdek");
+            println!("Copyright © 2022–2023 Piotr Bajdek");
             println!();
             println!("Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:");
             println!();
@@ -132,8 +134,8 @@ pub fn documentation() {
         // VERSION
 
         if argument == "-v" || argument == "--version" {
-            println!("Version: {}", yellow.to_owned() + "1.0.2" + reset);
-            println!("September 30, 2022");
+            println!("{}", grey.to_owned() + "Version" + reset + ": " + yellow + "1.0.3" + reset);
+            println!("January 19, 2023");
             exit(0);
         }
     }
