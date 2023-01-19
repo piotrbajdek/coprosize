@@ -22,7 +22,7 @@ Please, always refer to a specific program version--implemented formulae are sub
 
 Bajdek, P., 2023. coprosize (version 1.0.3). [computer software] https://github.com/piotrbajdek/coprosize
 
-You are also OK to modify and fork coprosize under terms of the [MIT License](https://github.com/piotrbajdek/coprosize/blob/main/LICENSE). It is moreover possible to link against coprosize using its library as a dependency for other bioinformatics projects (see [public functions](https://docs.rs/coprosize/1.0.3/coprosize/#functions)). The usage is best explained by example:
+You are also OK to modify and fork coprosize under terms of the [MIT License](https://github.com/piotrbajdek/coprosize/blob/main/LICENSE.md). It is moreover possible to link against coprosize using its library as a dependency for other bioinformatics projects (see [public functions](https://docs.rs/coprosize/1.0.3/coprosize/#functions)). The usage is best explained by example:
 
 Add to your `Cargo.toml` file:
 
